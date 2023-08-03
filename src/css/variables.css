@@ -1,0 +1,17 @@
+:root {
+  --main-black-color: #141414;
+  --main-white-color: #ffffff;
+  --dark-green-color: #1e2827;
+  --numeral-gray-color: rgba(20, 20, 20, 0.4);
+  --text-gray-color: rgba(20, 20, 20, 0.5);
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: blue;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}

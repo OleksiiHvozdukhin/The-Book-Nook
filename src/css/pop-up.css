@@ -109,6 +109,8 @@ button {
     line-height: 1.125;    
     letter-spacing: -0.64px;
     margin-bottom: 4px;
+    text-transform: uppercase;
+    
 }
 
 .author-book{

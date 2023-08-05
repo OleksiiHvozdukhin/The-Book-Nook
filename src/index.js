@@ -6,7 +6,7 @@ const logo = document.getElementById('logo');
 const mobileMenuButton = document.querySelector('[data-menu-open]');
 const mobileMenuCloseButton = document.querySelector('[data-menu-close]');
 
-// Function to toggle the dark theme
+
 function toggleTheme() {
   body.classList.toggle("dark-theme");
   if (body.classList.contains("dark-theme")) {
@@ -18,22 +18,21 @@ function toggleTheme() {
   }
 }
 
-// Function to set dark theme styles
 function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
   header.style.setProperty('--header-border-color-light', '#fff');
-//   logo.src = "./images/1-Header/logo_dark.svg";
+  // logo.src = "./images/1-Header/logo_dark.svg";
   mobileMenuCloseButton.style.visibility = "visible";
 }
 
-// Function to set light theme styles
+
 function setLightThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#f9f9f9');
   header.style.setProperty('--header-border-color-light', '#000');
-//   logo.src = "./images/1-Header/logo_light.svg";
+  // logo.src = "./images/1-Header/logo_light.svg";
 }
 
-// Check the initial theme and set styles
+
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-theme");
   themeSwitcher.checked = true;

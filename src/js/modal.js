@@ -26,19 +26,16 @@ function toggleModalOpen() {
       return response.json();
     })
     .then(data => {     
-      console.log(data);      
-      
-      refs.selectedBook.innerHTML = createBookMarkup(data);
-      
-      console.log(data); // Виводимо об'єкт у консоль
+      refs.selectedBook.insertAdjacentHTML('beforeend',createBook(data));      
       })
       .catch(error => {
         // console.error('Error:', error);
       });
 }
 
-  /*---------------!!!!!!!!!!!!!!!!!!!**/
-  function createBook({ book_image, title,author,description, buy_links }) {
+/*---------------!!!!!!!!!!!!!!!!!!!*Модуль 8. Занятие 15. Делегирование событий час 1:07:00*/
+  /*розмітка під рендер модального вікна*/
+function createBook({ book_image, title, author, description, buy_links}) {
      return `<img class="cover-book" src="${book_image}" alt="обкладинка книжки">     
           <div class="description-book">
             <h3 class="name-book">${title}</h3>
@@ -65,16 +62,9 @@ function toggleModalOpen() {
           `;
 }
 
-  function createBookMarkup(items) {
-    console.log(createBook);
-  return items.map(createBook).join('');
-}
-
-  /*-----------------!!!!!!!!!!!!!!!!*/
-  
- 
-
 function toggleModalClose() {
     refs.modal.classList.toggle('is-hidden');
-    document.body.classList.toggle('no-scroll');
+    document.body.classList.toggle('no-scroll');  
+  
+    refs.selectedBook.innerHTML = '';
   }

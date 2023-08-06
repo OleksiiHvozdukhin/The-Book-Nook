@@ -1,0 +1,116 @@
+section {
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 335px;
+  height: 352px;
+  border-radius: 16px;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  box-shadow: 0px 10px 10px 0px #f5f5f71a;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+section.active {
+  height: auto;
+}
+
+.funds__list {
+  width: 159px;
+  height: 188px;
+  padding: 0px;
+  margin-left: 40px;
+  overflow: hidden;
+  transition: heigh 03s ease;
+}
+
+.funds__list.active {
+  height: auto;
+}
+
+.slider {
+  margin: 16px auto 0px auto;
+  display: block;
+  background-color: rgba(255, 0, 0, 0);
+  border-color: rgba(255, 0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    width: 356px;
+    height: 474px;
+    margin-left: 401px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 768px;
+  }
+
+  .funds__list {
+    height: 292px;
+  }
+
+  .support_Ukraine {
+    padding-right: 87px;
+  }
+
+  .slider {
+    margin: 24px auto 0px auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section {
+    width: 356px;
+    height: 474px;
+    margin-left: 24px;
+  }
+
+  .container {
+    max-width: 1252px;
+  }
+}
+
+.fund__li {
+  height: 31px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.fund__li:first-child {
+  margin-top: 0px;
+}
+
+.fund_numder {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  margin-right: 16px;
+}
+
+.support_Ukraine {
+  padding-top: 24px;
+  padding-right: 102px;
+  padding-left: 40px;
+  display: inline;
+}
+
+.funds {
+  margin-right: 0px;
+}
+
+.fund__icon {
+  text-decoration: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}

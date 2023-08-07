@@ -21,7 +21,7 @@ function toggleTheme() {
 function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
   header.style.setProperty('--header-border-color-light', '#fff');
-  // logo.src = "./images/1-Header/logo_dark.svg";
+  logo.src = ('./images/1-Header/logo_dark.svg');
   mobileMenuCloseButton.style.visibility = "visible";
 }
 
@@ -29,7 +29,7 @@ function setDarkThemeStyles() {
 function setLightThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#f9f9f9');
   header.style.setProperty('--header-border-color-light', '#000');
-  // logo.src = "./images/1-Header/logo_light.svg";
+  logo.src = ('./images/1-Header/logo_light.svg');
 }
 
 

@@ -1,46 +1,55 @@
-<section>
 <header class="header" id="header">
-    <div class="header-container container">
-        <nav class="header-nav">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="./images/1-Header/logo_light.svg" alt="Logo" id="logo">
-                    </a>
-                </div>
-                <ul class="header-list">
-                    <li class="menu-list-nav"><a href="index.html" class="curent-link">Home</a></li>
-                    <li class="menu-list-nav"><a href="" class="shoping-list">Shoping list</a></li>
-                </ul>
-            </div>    
-        </nav>
-        <div class="switch-button">
-            <div class="theme-switcher">
-                <label id="theme-toggle" class="switch">
-                    <input type="checkbox" onchange="toggleTheme()" id="slider">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="header-btns-container">
-                <button class="header-btn-mobil-menu" data-menu-open></button>
-                <button class="header-btn-mobil-menu-close is-hidden" data-menu-close></button>
-            </div>
+  <div class="header-container container">
+    <nav class="header-nav">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img src="./images/1-Header/logo_light.svg" alt="Logo" id="logo" />
+          </a>
         </div>
-        <div class="sign-up">
-            <button class="sign-up-btn">Sign up</button>
-        </div>
+        <ul class="header-list">
+          <li class="menu-list-nav">
+            <a href="index.html" class="curent-link">Home</a>
+          </li>
+          <li class="menu-list-nav">
+            <a href="./partials/shoping-list.html" class="shoping-list"
+              >Shoping list</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="switch-button">
+      <div class="theme-switcher">
+        <label id="theme-toggle" class="switch">
+          <input type="checkbox" onchange="toggleTheme()" id="slider" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="header-btns-container">
+        <button class="header-btn-mobil-menu" data-menu-open></button>
+        <button
+          class="header-btn-mobil-menu-close is-hidden"
+          data-menu-close
+        ></button>
+      </div>
     </div>
-    <div class="mobile-menu is-hidden" data-menu>
-
-        <div class="menu-container-list">
-            <ul class="menu-list">
-                <li class="menu-list-nav"><a href="index.html" class="curent-link">Home</a></li>
-                <li class="menu-list-nav"><a href="" class="shoping-list">Shoping list</a></li>
-            </ul>
-        </div>
-
-        <div class="svg-books">
-        </div>
+    <div class="sign-up">
+      <button class="sign-up-btn">Sign up</button>
     </div>
+  </div>
+  <div class="mobile-menu is-hidden" data-menu>
+    <div class="menu-container-list">
+      <ul class="menu-list">
+        <li class="menu-list-nav">
+          <a href="index.html" class="curent-link">Home</a>
+        </li>
+        <li class="menu-list-nav">
+          <a href="" class="shoping-list">Shoping list</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="svg-books"></div>
+  </div>
 </header>
-</section>

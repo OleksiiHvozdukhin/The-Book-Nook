@@ -1,0 +1,2 @@
+var refs={supportUkraine:document.querySelector(".support-ukraine"),allCategoties:document.querySelector(".all_categories"),body:document.body,funds:document.querySelector(".funds.support-ukraine-container"),slider:document.querySelector(".slider-support-ukraine")};function onSliderClick(){fundsList.classList.toggle("active"),refs.supportUkraine.classList.toggle("active"),refs.body.offsetWidth>=768&&refs.body.offsetWidth<=1440&&refs.allCategoties.classList.toggle("active")}refs.slider.addEventListener("click",onSliderClick);
+//# sourceMappingURL=index.dd0a2fae.js.map

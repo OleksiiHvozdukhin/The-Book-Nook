@@ -1,5 +1,5 @@
 section.all_categories {
-  background: #ffffff;
+  background: inherit;
   height: 228px;
   width: 335px;
   margin: 40px auto;
@@ -18,11 +18,19 @@ section.all_categories {
   white-space: nowrap;
 }
 
+.category_list.dark-theme .category_item {
+  color: #ffffff99;
+}
+
 .category_item:hover {
   font-family: DM Sans;
   font-weight: 700;
   text-transform: uppercase;
   color: #4f2ee8;
+}
+
+.category_list.dark-theme .category_item:hover {
+  color: #eac645;
 }
 
 .category_list {
@@ -102,6 +110,10 @@ section.all_categories {
     gap: 32px;
   }
 }
+/* 
+section.all_categories > * {
+  color: inherit;
+} */
 
 /* .all_categories section {
     background: #ffffff;

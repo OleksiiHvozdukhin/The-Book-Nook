@@ -7,8 +7,7 @@ const mobileMenuButton = document.querySelector('[data-menu-open]');
 const mobileMenuCloseButton = document.querySelector('[data-menu-close]');
 
 const categoryList = document.getElementsByClassName('category_list')[0];
-
-console.log(categoryList);
+const headerLogo = document.getElementsByClassName('logo')[0];
 
 function toggleTheme() {
   body.classList.toggle('dark-theme');
@@ -25,7 +24,11 @@ function toggleTheme() {
 function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
   header.style.setProperty('--header-border-color-light', '#fff');
-  logo.src = './images/1-Header/logo_dark.svg';
+  // logo.src = './images/1-Header/logo_dark.svg';
+  // headerLogo.firstElementChild.innerHTML =
+  //   '<img src="./images/1-Header/logo_dark.svg" alt="Logo" id="logo" />';
+  // logo.parentNode.innerHTML =
+  //   '<img src="./images/1-Header/logo_dark.svg" alt="Logo" id="logo" />';
   mobileMenuCloseButton.style.visibility = 'visible';
 
   // categoryList.style.setProperty();
@@ -34,7 +37,9 @@ function setDarkThemeStyles() {
 function setLightThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#f9f9f9');
   header.style.setProperty('--header-border-color-light', '#000');
-  logo.src = './images/1-Header/logo_light.svg';
+  // logo.src = './images/1-Header/logo_light.svg';
+  // headerLogo.firstElementChild.innerHTML =
+  //   '<img src="./images/1-Header/logo_light.svg" alt="Logo" id="logo" />';
 }
 
 if (localStorage.getItem('theme') === 'dark') {

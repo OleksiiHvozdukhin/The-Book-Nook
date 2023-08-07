@@ -93,8 +93,14 @@ button {
     background-color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
+.btn-modal-close:hover,
+.btn-modal-close:focus {
+    background-color: #4F2EE8;
+}
+
+
 .selected-book{
     margin-bottom: 40px;   
 }
@@ -154,6 +160,11 @@ button {
     border: 2px solid #4F2EE8;  
     
     margin-bottom: 8px;
+    
+}
+.add-remove-btn:hover,
+.add-remove-btn:focus {
+    background-color: #4F2EE8;
 }
 
 .congratulations{

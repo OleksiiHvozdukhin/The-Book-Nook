@@ -45,7 +45,7 @@
   margin-bottom: 40px;
 }
 .item-image {
-  margin-top: 40px;
+  margin-top: 0;
 }
 .see-more-btn {
   display: block;
@@ -68,9 +68,32 @@
   background-color: #4f2ee8;
   border-color: transparent;
 }
+
+.book_list {
+  margin-top: 40px;
+}
+
+ul.js-list {
+  padding-left: 0;
+}
+
+.category-menu.js-add-list {
+  padding-left: 0;
+}
+
 @media screen and (min-width: 768px) {
-  .section {
-    padding: 64px 0;
+  .section.book_list {
+    padding: 64px 0 0;
+    margin: 0;
+    padding-top: 100px;
+  }
+
+  .container.book-container {
+    padding-left: 0;
+  }
+
+  .title {
+    margin-top: 0;
   }
 
   .container {
@@ -123,7 +146,7 @@
     max-width: 996px;
   }
   .book-container {
-    display: flex;
+    display: block;
     gap: 40px;
   }
   .see-more-btn {

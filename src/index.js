@@ -78,7 +78,8 @@ themeSwitcher.addEventListener('change', toggleTheme);
 })();
 // --------------------------------Pawel--
 const listBook = document.querySelector('.js-list');
-const listCategory = document.querySelector('.js-container-category');
+// const listCategory = document.querySelector('.js-container-category');
+const listCategory = document.querySelector('.category_list');
 const titleCategory = document.querySelector('.js-title');
 listBook.addEventListener('click', handlerClickBook);
 // -----------------запит на всі категоріі-----
@@ -126,8 +127,19 @@ function servicesSelectedBook(idBook) {
     }
   );
 }
+
+function arrayOrName(data) {
+  if (Array.isArray(data)) return 'Books';
+  else return data.textContent;
+}
+
 serviceBook()
   .then(data => {
+    listBook.insertAdjacentHTML(
+      'beforebegin',
+      `<h2 class="title">${arrayOrName(data)}<span class="books"></span></h2>`
+    );
+    console.log(data.textContent);
     listBook.insertAdjacentHTML('beforeend', createMarcup(data));
     const itemCategory = document.querySelectorAll('.js-add-list');
     for (let i = 0; i < data.length; i += 1) {
@@ -146,6 +158,7 @@ serviceCategory()
   })
   .catch(err => console.log(err));
 
+// КЛИК ПО КАТЕГОРИИ
 function onClick(evt) {
   let result = evt.target.textContent;
   result = result.trimStart();
@@ -170,7 +183,9 @@ function createMarcup(arr) {
     .join('');
 }
 
+// СОЗДАНИЕ СПИСКА КАТЕГОРИЙ
 function createCategory(arr) {
+  console.log(arr);
   return arr
     .map(
       ({ list_name }) => `<li class="js-item-category category_item">
@@ -179,6 +194,7 @@ function createCategory(arr) {
     .join('');
 }
 
+// MODAL
 function handlerClickBook(evt) {
   const bookItem = evt.target.closest('.js-book-item');
   if (bookItem) {

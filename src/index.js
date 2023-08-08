@@ -1,11 +1,13 @@
 // Theme toggle
+import logoLight from './images/1-Header/logo_light.svg';
+import logoDark from './images/1-Header/logo_dark.svg';
+
 const themeSwitcher = document.getElementById("slider");
 const body = document.body;
 const header = document.getElementById('header');
 const logo = document.getElementById('logo');
 const mobileMenuButton = document.querySelector('[data-menu-open]');
 const mobileMenuCloseButton = document.querySelector('[data-menu-close]');
-
 
 function toggleTheme() {
   body.classList.toggle("dark-theme");
@@ -21,17 +23,15 @@ function toggleTheme() {
 function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
   header.style.setProperty('--header-border-color-light', '#fff');
-  logo.src = ('./images/1-Header/logo_dark.svg');
+  logo.src = logoDark;
   mobileMenuCloseButton.style.visibility = "visible";
 }
-
 
 function setLightThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#f9f9f9');
   header.style.setProperty('--header-border-color-light', '#000');
-  logo.src = ('./images/1-Header/logo_light.svg');
+  logo.src = logoLight;
 }
-
 
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-theme");

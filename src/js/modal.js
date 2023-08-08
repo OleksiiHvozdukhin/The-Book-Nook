@@ -51,10 +51,10 @@ function createBook({ book_image, title, author, description, buy_links}) {
             <p class="author-book">${author}</p>
             <p class="abstract-book">${description}</p>
             <ul class="links-tradeplatforms">
-              <li class="link-item" href="${buy_links[0].url}">
-                <a href="${buy_links[0].url}" target="_blank">
-                  <img src="../images/6-Pop Up/amazon.png" alt="логотип Amazone">
-                </a>            
+              <li class="link-item" href="${buy_links[0].url}" target="_blank">
+                // <a href="${buy_links[0].url}" target="_blank">
+                  <img src="./images/6-Pop Up/amazon.png" alt="логотип Amazone">
+                // </a>            
               </li>
               <li class="link-item" href="${buy_links[1].url}">
                 <a href="${buy_links[1].url}" target="_blank">

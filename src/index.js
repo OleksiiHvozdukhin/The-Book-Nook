@@ -80,7 +80,8 @@ themeSwitcher.addEventListener('change', toggleTheme);
 const listBook = document.querySelector('.js-list');
 // const listCategory = document.querySelector('.js-container-category');
 const listCategory = document.querySelector('.category_list');
-const titleCategory = document.querySelector('.js-title');
+// const titleCategory = document.querySelector('.js-title');
+const newTitle = document.querySelector('.title');
 listBook.addEventListener('click', handlerClickBook);
 // -----------------запит на всі категоріі-----
 function serviceBook() {
@@ -135,11 +136,6 @@ function arrayOrName(data) {
 
 serviceBook()
   .then(data => {
-    listBook.insertAdjacentHTML(
-      'beforebegin',
-      `<h2 class="title">${arrayOrName(data)}<span class="books"></span></h2>`
-    );
-    console.log(data.textContent);
     listBook.insertAdjacentHTML('beforeend', createMarcup(data));
     const itemCategory = document.querySelectorAll('.js-add-list');
     for (let i = 0; i < data.length; i += 1) {
@@ -166,6 +162,13 @@ function onClick(evt) {
   serviceThisCategory(result)
     .then(data => {
       listBook.innerHTML = createBooks(data);
+      const row = data[0].list_name;
+      const textElement = row.split(' ');
+      const titleCategory = textElement
+        .splice(0, textElement.length - 1)
+        .join(' ');
+      const spanCategory = textElement[textElement.length - 1];
+      newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
     })
     .catch(err => console.log(err));
 }

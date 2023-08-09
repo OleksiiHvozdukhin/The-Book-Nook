@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&family=Epilogue:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/shopping-list.css" />
+    <link rel="stylesheet" href="./css/media.css" />
+
+    <title>The Book Nook</title>
+    <!-- <script type="module" src="./index.js"></script> -->
+  </head>
+
+  <body>
+
+      <include src="./partials/header.html"></include>
+
+    <main>
+      
+    <div class="container-shop">
+      
+    <div class="shop-list-support-ukraine">
+      <include src="./partials/support-ukraine.html"></include>
+    </div>
+
+      <section class="shopping-list section">
+        <div class="shopping-list-div container">
+          <h1 class="shopping-list-header">
+            Shopping <span class="title-color">List</span>
+          </h1>
+          <div class="empty-shopping-list-div">
+            <p class="empty-shopping-list-msg">
+              This page is empty, add some books and proceed to order.
+            </p>
+            <img
+              class="empty-shopping-list-img"
+              src="./images/shop-list.svg"
+              width="265"
+              height="198"
+            />
+          </div>
+          <div class="js-books shop"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

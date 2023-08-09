@@ -1,10 +1,10 @@
 .shopping-list-header {
   margin-bottom: 40px;
+  margin-top: 40px;
   font-size: 32px;
   font-weight: 700;
   color: #111111;
 }
-
 .empty-shopping-list-div {
   padding: 80px 55px;
 }
@@ -23,13 +23,21 @@
   color: #4f2ee8;
 }
 
+.support-ukraine {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .shopping-list-header {
     font-size: 48px;
   }
 
+  .shopping-list.section {
+    padding-top: 0px;
+  }
+
   .empty-shopping-list-div {
-    width: 349px;
+    width: 437px;
     padding-top: 100px;
     margin-inline: auto;
   }
@@ -37,6 +45,7 @@
   .empty-shopping-list-msg {
     font-size: 18px;
     margin-bottom: 20px;
+    margin-top: 0;
   }
 
   .empty-shopping-list-img {
@@ -48,8 +57,30 @@
     .shopping-list-div {
       width: 996px;
     }
+
+    .container-shop {
+      display: flex;
+      justify-content: left;
+      align-items: start;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 1440px;
+    }
+
+    .shop-list-support-ukraine > section.support-ukraine {
+      display: block;
+      margin: 0px;
+      margin-top: 0px;
+    }
+    div.shopping-list-div {
+      padding-left: 40px;
+    }
     .book-card-description {
       width: 808px;
+    }
+
+    .shopping-list-header {
+      margin-top: 0;
     }
   }
 }

@@ -19,7 +19,7 @@ section.all_categories {
 }
 
 body.dark-theme .category_item {
-  color: #ffffff99;
+  color: hsla(0, 0%, 100%, 0.6);
 }
 
 .category_list.dark-theme .category_item {

@@ -1,7 +1,7 @@
 // Theme toggle
 import logoLight from './images/1-Header/logo_light.svg';
 import logoDark from './images/1-Header/logo_dark.svg';
-const themeSwitcher = document.getElementById("slider");
+const themeSwitcher = document.getElementById('slider');
 const body = document.body;
 const header = document.getElementById('header');
 const logo = document.getElementById('logo');
@@ -10,12 +10,12 @@ const mobileMenuCloseButton = document.querySelector('[data-menu-close]');
 const categoryList = document.getElementsByClassName('category_list')[0];
 
 function toggleTheme() {
-  body.classList.toggle("dark-theme");
-  if (body.classList.contains("dark-theme")) {
-    localStorage.setItem("theme", "dark");
+  body.classList.toggle('dark-theme');
+  if (body.classList.contains('dark-theme')) {
+    localStorage.setItem('theme', 'dark');
     setDarkThemeStyles();
   } else {
-    localStorage.setItem("theme", "light");
+    localStorage.setItem('theme', 'light');
     setLightThemeStyles();
   }
 }
@@ -24,7 +24,7 @@ function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
   header.style.setProperty('--header-border-color-light', '#fff');
   logo.src = logoDark;
-  mobileMenuCloseButton.style.visibility = "visible";
+  mobileMenuCloseButton.style.visibility = 'visible';
 }
 
 function setLightThemeStyles() {
@@ -32,17 +32,17 @@ function setLightThemeStyles() {
   header.style.setProperty('--header-border-color-light', '#000');
   logo.src = logoLight;
 }
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-theme");
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-theme');
   themeSwitcher.checked = true;
   setDarkThemeStyles();
 } else {
-  body.classList.remove("dark-theme");
+  body.classList.remove('dark-theme');
   themeSwitcher.checked = false;
   setLightThemeStyles();
 }
 
-themeSwitcher.addEventListener("change", toggleTheme);
+themeSwitcher.addEventListener('change', toggleTheme);
 
 // Mobile menu
 (() => {
@@ -192,9 +192,20 @@ function handlerClickBook(evt) {
     const { id } = bookItem.dataset;
     servicesSelectedBook(id).then(({ _id, book_image, author, title }) => {
       const instance = basicLightbox.create(`<div class="modal">
+      <button type="button" class="btn-modal-close" data-modal-close>
+      <svg width="24" height="24">
+        <use href="./images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
+      </svg>
+    </button>
                <img src="${book_image}" alt="${_id}"width="335" height="485">
                 <h3>${title}</h3>
                 <p>${author}</p>
+                
+    <button class="add-remove-btn">Add to shoping list</button>
+    <span class="congratulations"
+      >Сongratulations! You have added the book to the shopping list. To delete,
+      press the button "Remove from the shopping list".</span
+    >
               </div>`);
       instance.show();
     });

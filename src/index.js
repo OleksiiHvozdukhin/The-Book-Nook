@@ -79,7 +79,8 @@ themeSwitcher.addEventListener('change', toggleTheme);
 // --------------------------------Pawel--
 const listBook = document.querySelector('.js-list');
 const listCategory = document.querySelector('.js-container-category');
-const titleCategory = document.querySelector('.js-title');
+// const titleCategory = document.querySelector('.js-title');
+const newTitle = document.querySelector('.title');
 listBook.addEventListener('click', handlerClickBook);
 // -----------------запит на всі категоріі-----
 function serviceBook() {
@@ -153,6 +154,13 @@ function onClick(evt) {
   serviceThisCategory(result)
     .then(data => {
       listBook.innerHTML = createBooks(data);
+      const row = data[0].list_name;
+      const textElement = row.split(' ');
+      const titleCategory = textElement
+        .splice(0, textElement.length - 1)
+        .join(' ');
+      const spanCategory = textElement[textElement.length - 1];
+      newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
     })
     .catch(err => console.log(err));
 }

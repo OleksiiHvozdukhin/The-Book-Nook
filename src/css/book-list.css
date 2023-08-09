@@ -7,9 +7,9 @@
   font-size: 32px;
   line-height: 1.18; /* 38/32 */
   margin-bottom: 40px;
-  max-width: 260px;
+  /* max-width: 260px; */
   height: 38px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .books {
   color: #4f2ee8;
@@ -96,6 +96,7 @@
     width: 218px;
     height: 316px;
     object-fit: cover;
+    border-radius: 8px;
   }
   .see-more-btn {
     margin-top: 20px;

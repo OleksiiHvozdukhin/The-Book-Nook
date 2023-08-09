@@ -131,11 +131,13 @@ serviceBook()
   .then(data => {
     listBook.insertAdjacentHTML('beforeend', createMarcup(data));
     const itemCategory = document.querySelectorAll('.js-add-list');
+    const seeMore = document.querySelectorAll('.js-item');
     for (let i = 0; i < data.length; i += 1) {
       itemCategory[i].insertAdjacentHTML(
         'beforeend',
         createBooks(data[i].books)
       );
+      seeMore[i].addEventListener('click', onClickBtn);
     }
   })
   .catch(err => console.log(err));
@@ -155,12 +157,7 @@ function onClick(evt) {
     .then(data => {
       listBook.innerHTML = createBooks(data);
       const row = data[0].list_name;
-      const textElement = row.split(' ');
-      const titleCategory = textElement
-        .splice(0, textElement.length - 1)
-        .join(' ');
-      const spanCategory = textElement[textElement.length - 1];
-      newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
+      newTitleName(row);
     })
     .catch(err => console.log(err));
 }
@@ -214,3 +211,55 @@ function createBooks(arr) {
     )
     .join('');
 }
+
+function newTitleName(res) {
+  const textElement = res.split(' ');
+  const titleCategory = textElement.splice(0, textElement.length - 1).join(' ');
+  const spanCategory = textElement[textElement.length - 1];
+  newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
+}
+
+function onClickBtn(evt) {
+  const btnItem = evt.target.closest('.see-more-btn');
+  if (btnItem) {
+    let res = evt.currentTarget.children[0].textContent;
+    res = res.trimStart();
+    serviceThisCategory(res)
+      .then(data => {
+        listBook.innerHTML = createBooks(data);
+        newTitleName(res);
+      })
+      .catch(err => console.log(err));
+  }
+}
+const btnUp = {
+  el: document.querySelector('.btn-up'),
+  show() {
+    // удалим у кнопки класс btn-up_hide
+    this.el.classList.remove('btn-up_hiden');
+  },
+  hide() {
+    // добавим к кнопке класс btn-up_hide
+    this.el.classList.add('btn-up_hiden');
+  },
+  addEventListener() {
+    // при прокрутке содержимого страницы
+    window.addEventListener('scroll', () => {
+      // определяем величину прокрутки
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
+      scrollY > 200 ? this.show() : this.hide();
+    });
+    // при нажатии на кнопку .btn-up
+    document.querySelector('.btn-up').onclick = () => {
+      // переместим в начало страницы
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    };
+  },
+};
+
+btnUp.addEventListener();

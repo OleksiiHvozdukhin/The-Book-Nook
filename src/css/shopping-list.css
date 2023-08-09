@@ -5,6 +5,10 @@
   font-weight: 700;
   color: #111111;
 }
+
+body.dark-theme .shopping-list-header {
+  color: #ffffff;
+}
 .empty-shopping-list-div {
   padding: 80px 55px;
 }

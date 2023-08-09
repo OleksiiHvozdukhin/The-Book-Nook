@@ -281,13 +281,19 @@ input:checked + .slider:before {
 
 header.dark-theme {
   background-color: #111111;
-  transition: 0.4s;
+  transition: background-color 0.4s;
+}
+
+body {
+  background-color: #ffffff;
+  transition: background-color 0.4s;
 }
 
 body.dark-theme {
   background-color: #202024;
   color: #fff;
-  transition: 0.4s;
+  transition: background-color 0.4s;
+  /* transition: color 0.4s; */
 }
 
 .sign-up-btn {
@@ -309,6 +315,7 @@ body.dark-theme {
   border: 2px solid var(--header-border-color-light);
   border-radius: 0 0 8px 8px;
   padding: 18px 20px;
+  /* transition */
 }
 
 @media screen and (min-width: 768px) {

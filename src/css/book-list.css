@@ -11,6 +11,11 @@
   height: 38px;
   /* white-space: nowrap; */
 }
+
+body.dark-theme .title {
+  color: #ffffff;
+}
+
 .books {
   color: #4f2ee8;
   font-size: 32px;
@@ -31,6 +36,11 @@
   color: #111111;
   margin-top: 14px;
 }
+
+body.dark-theme .book-title {
+  color: #ffffff;
+}
+
 .category-name {
   font-size: 14px;
   line-height: 1, 28; /* 18/14 */
@@ -67,6 +77,10 @@
   color: #fff;
   background-color: #4f2ee8;
   border-color: transparent;
+}
+
+body.dark-theme .see-more-btn {
+  color: #ffffff;
 }
 
 .book_list {

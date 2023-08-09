@@ -180,7 +180,7 @@ function createMarcup(arr) {
   <li class="js-item item-list">
         <h3 class="category-name">${list_name}</h3>
         <ul class="category-menu js-add-list"></ul>
-        <button class="see-more-btn" type="button">See more</button>
+        <button class="see-more-btn" type="button">SEE MORE</button>
       </li>`
     )
     .join('');

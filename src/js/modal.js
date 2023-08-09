@@ -2,7 +2,7 @@
     openModal: document.querySelector('[data-modal-open]'),
     closeModal: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
-    selectedBook: document.querySelector('.selected-book'),
+    selectedBook: document.querySelector('.selected-book-modal'),
     addRemoveBtn: document.querySelector('add-remove-btn'),
   };
 
@@ -45,24 +45,24 @@ function toggleModalOpen() {
 /*---------------!!!!!!!!!!!!!!!!!!!*Модуль 8. Занятие 15. Делегирование событий час 1:07:00*/
   /*розмітка під рендер модального вікна*/
 function createBook({ book_image, title, author, description, buy_links}) {
-     return `<img class="cover-book" src="${book_image}" alt="обкладинка книжки">     
-          <div class="description-book">
-            <h3 class="name-book">${title}</h3>
-            <p class="author-book">${author}</p>
-            <p class="abstract-book">${description}</p>
-            <ul class="links-tradeplatforms">
-              <li class="link-item" href="${buy_links[0].url}" target="_blank">
-                // <a href="${buy_links[0].url}" target="_blank">
-                  <img src="./images/6-Pop Up/amazon.png" alt="логотип Amazone">
-                // </a>            
+     return `<img class="cover-book-modal" src="${book_image}" alt="обкладинка книжки">     
+          <div>
+            <h3 class="name-book-modal">${title}</h3>
+            <p class="author-book-modal">${author}</p>
+            <p class="abstract-book-modal">${description}</p>
+            <ul class="links-tradeplatforms-modal">
+              <li class="link-tradeplatform">
+                <a href="${buy_links[0].url}" target="_blank">
+                  <img src="/images/6-Pop Up/amazon.png" alt="логотип Amazone">
+                </a>            
               </li>
-              <li class="link-item" href="${buy_links[1].url}">
+              <li class="link-tradeplatform">
                 <a href="${buy_links[1].url}" target="_blank">
-                  <img src="./images/6-Pop Up/book.png" alt="логотип AppleBooks">
+                  <img src="../images/6-Pop Up/amazon.png" alt="логотип AppleBooks">
                 </a>
               </li>
-              <li class="link-item" href="${buy_links[4].url}" target="_blank">
-                <a href="${buy_links[4].url}">
+              <li class="link-tradeplatform">
+                <a href="${buy_links[4].url}" target="_blank">
                   <img src="./images/6-Pop Up/bookShop.png" alt="логотип BookShop">
                 </a>
               </li>

@@ -1,5 +1,5 @@
 /*Resets*/
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,7 +14,7 @@ h6,
 p {
     margin: 0;
 } 
-
+*/
 ul {
     margin: 0;
     padding: 0;
@@ -27,6 +27,8 @@ a {
 }
 
 button {
+    margin: 0;
+    padding: 0;
     cursor: pointer;
 }
 .link {
@@ -77,11 +79,6 @@ button {
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* .icon-close {
-    width: 12px;
-    height: 12px;
-} */
-
 .btn-modal-close {
     position: absolute;
     width: 24px;
@@ -91,24 +88,29 @@ button {
     right: 12px;  
     border: none;
     background-color: white;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;     */
 }
 .btn-modal-close:hover,
 .btn-modal-close:focus {
     background-color: #4F2EE8;
 }
+.icon-close-modal{
+    /* display: flex; */
 
+}
 
-.selected-book{
+.selected-book-modal{
     margin-bottom: 40px;   
 }
-.cover-book{
+.cover-book-modal{
+    width: 287px;
+    height: 408px;
     margin-bottom: 14px;
 }
 
-.name-book{
+.name-book-modal{
     color: #111;    
     font-size: 16px;
     font-weight: 700;
@@ -119,7 +121,7 @@ button {
     
 }
 
-.author-book{
+.author-book-modal{
     color: #B4AFAF;        
     font-size: 12px;
     font-style: italic;
@@ -129,7 +131,7 @@ button {
     margin-bottom: 18px;
 }
 
-.abstract-book{
+.abstract-book-modal{
     color: #111;   
     font-weight: 400;
     line-height: 1.28;
@@ -137,11 +139,14 @@ button {
 
     margin-bottom: 14px;
 }
-.links-tradeplatforms{
+.links-tradeplatforms-modal{
     display: inline-flex;
     align-items: center;
     gap: 20px;
     width: 36px;
+}
+.link-tradeplatform{
+    
 }
 .add-remove-btn{
     width: 100%;   
@@ -167,7 +172,7 @@ button {
     background-color: #4F2EE8;
 }
 
-.congratulations{
+.congratulations-modal{
     /* display: inline-flexbox; */
     color: rgba(17, 17, 17, 0.50);
     text-align: center;    
@@ -188,17 +193,17 @@ button {
          top: 24px;
     right: 24px;
     }
-    .selected-book{
+    .selected-book-modal{
         display: flex;
         flex-direction: row;
         margin-bottom: 40px;
     }
-    .cover-book{
-        height: 281px;
+    .cover-book-modal{
         width: 192px;
+        height: 281px;
         margin-right: 24px;
     }
-    .name-book{
+    .name-book-modal{
         color: #111;
         font-size: 24px;        
         line-height: 1.16;
@@ -206,7 +211,7 @@ button {
     
         margin-bottom: 8px;
     }
-    .author-book{
+    .author-book-modal{
         color: #B4AFAF;
         font-size: 14px;
         font-style: italic;
@@ -215,10 +220,10 @@ button {
         letter-spacing: -0.56px;
         margin-bottom: 20px;
     }
-    .abstract-book {
+    .abstract-book-modal{
         margin-bottom: 20px;
     }
-    .congratulations{
+    .congratulations-modal{
         width: 324px;
     }
 }

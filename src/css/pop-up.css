@@ -96,10 +96,6 @@ button {
 .btn-modal-close:focus {
     background-color: #4F2EE8;
 }
-.icon-close-modal{
-    /* display: flex; */
-
-}
 
 .selected-book-modal{
     margin-bottom: 40px;   
@@ -145,9 +141,7 @@ button {
     gap: 20px;
     width: 36px;
 }
-.link-tradeplatform{
-    
-}
+
 .add-remove-btn{
     width: 100%;   
 

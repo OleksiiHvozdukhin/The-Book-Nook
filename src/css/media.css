@@ -20,9 +20,11 @@
     padding: 0 38px;
   }
 
-  main {
+  .main-container {
+    margin: 0 auto;
+    width: 1440px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding-top: 40px;
   }
 

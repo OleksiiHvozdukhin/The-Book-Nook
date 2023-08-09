@@ -18,6 +18,10 @@ section.all_categories {
   white-space: nowrap;
 }
 
+body.dark-theme .category_item {
+  color: #ffffff99;
+}
+
 .category_list.dark-theme .category_item {
   color: #ffffff99;
 }
@@ -29,7 +33,7 @@ section.all_categories {
   color: #4f2ee8;
 }
 
-.category_list.dark-theme .category_item:hover {
+body.dark-theme .category_item:hover {
   color: #eac645;
 }
 

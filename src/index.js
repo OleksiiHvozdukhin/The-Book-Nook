@@ -66,6 +66,17 @@ themeSwitcher.addEventListener('change', toggleTheme);
     refs.closeMenuBtn.classList.toggle('is-hidden');
   }
 })();
+
+const currentLinks = document.querySelectorAll('.curent-link');
+
+currentLinks.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('curent-link');
+  } else {
+    link.classList.remove('curent-link');
+  }
+});
+
 // --------------------------------Pawel--
 const listBook = document.querySelector('.js-list');
 // const listCategory = document.querySelector('.js-container-category');

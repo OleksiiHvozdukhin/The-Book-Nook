@@ -6,6 +6,54 @@
   color: #111111;
 }
 
+.pagination {
+  display: flex;
+  gap: 14px;
+
+  padding-bottom: 40px;
+}
+
+.pagination-btns,
+.pagination-numer-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-btn {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+
+  width: 38px;
+  height: 38px;
+
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+
+  border-radius: 50%;
+  border-color: black;
+  border-width: 1px;
+}
+
+.first-btn,
+.prev-btn,
+.prev-numer-btn {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(17, 17, 17, 1);
+}
+
+.first-btn,
+.prev-btn,
+.next-btn,
+.last-btn {
+  font-weight: 400;
+}
+
+.next-btn,
+.last-btn {
+  background-color: rgba(234, 198, 69, 1);
+}
+
 body.dark-theme .shopping-list-header {
   color: #ffffff;
 }
@@ -116,31 +164,28 @@ body.dark-theme .shopping-list-header {
 
   background-image: url(../images/5-Shoping\ List/icon-basket.png);
   background-repeat: no-repeat;
-background-position: center;
+  background-position: center;
 
-  
   stroke: #ffffff;
   fill: #4f2ee8;
-border-radius: 50%;
-border: transparent;
+  border-radius: 50%;
+  border: transparent;
 }
 
 .shoping-list-images {
-position: absolute;
-bottom: 14px;
-right: 14px;
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
 }
 
 .list-images {
   display: flex;
   gap: 20px;
-align-items: center;
- 
+  align-items: center;
 }
 
 .image-link {
   display: block;
-  
 }
 
 .image-link-amazon {
@@ -165,6 +210,14 @@ align-items: center;
   background-size: contain;
   width: 16px;
   height: 16px;
+}
+
+.pagination {
+  gap: 24px;
+}
+.pagination-btn {
+  width: 44px;
+  height: 44px;
 }
 
 @media screen and (min-width: 768px) {
@@ -213,7 +266,7 @@ align-items: center;
 
   .image-link-bookShop {
     width: 32px;
-  height: 30px;
+    height: 30px;
   }
 
   .image-link-openBook {
@@ -225,7 +278,7 @@ align-items: center;
     width: 43px;
     height: 15px;
   }
-  
+
   .shoping-list-images {
     bottom: 24px;
     right: 24px;
@@ -239,51 +292,50 @@ align-items: center;
   }
 }
 
-  @media screen and (min-width: 1440px) {
-    .shopping-list-div {
-      width: 996px;
-    }
-
-    .container-shop {
-      display: flex;
-      justify-content: left;
-      align-items: start;
-      margin: 0 auto;
-      padding: 0 24px;
-      width: 1440px;
-    }
-
-    .shop-list-support-ukraine > section.support-ukraine {
-      display: block;
-      margin: 0px;
-      margin-top: 0px;
-    }
-    div.shopping-list-div {
-      padding-left: 40px;
-    }
-    .book-card-description {
-      width: 808px;
-    }
-
-    .shopping-list-header {
-      margin-top: 0;
-    }
-
-    .container-shop {
-      margin-top: 40px;
-    }
-
-    .shoping-book-card {
-      width: 996px;
-    }
-
-    .shoping-book-card-img > img {
-      width: 116px;
-      height: 165px;
-    }
-
-    .shoping-book-card-ganre {
-      padding-bottom: 10px;
-    }
+@media screen and (min-width: 1440px) {
+  .shopping-list-div {
+    width: 996px;
   }
 
+  .container-shop {
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 1440px;
+  }
+
+  .shop-list-support-ukraine > section.support-ukraine {
+    display: block;
+    margin: 0px;
+    margin-top: 0px;
+  }
+  div.shopping-list-div {
+    padding-left: 40px;
+  }
+  .book-card-description {
+    width: 808px;
+  }
+
+  .shopping-list-header {
+    margin-top: 0;
+  }
+
+  .container-shop {
+    margin-top: 40px;
+  }
+
+  .shoping-book-card {
+    width: 996px;
+  }
+
+  .shoping-book-card-img > img {
+    width: 116px;
+    height: 165px;
+  }
+
+  .shoping-book-card-ganre {
+    padding-bottom: 10px;
+  }
+}

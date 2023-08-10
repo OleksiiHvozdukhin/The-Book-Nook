@@ -63,12 +63,6 @@ button {
 }
 
 /* modal*/
-body .basicLightbox--visible{
-  overflow: hidden;
-}
-/* .basicLightbox--visible{
-  overflow: hidden;
-} */
 
 .basicLightbox__placeholder {
   position: absolute;
@@ -86,7 +80,11 @@ body .basicLightbox--visible{
   background: #fff;
   transform: translate(-50%, -50%) scale(1);
 }
-
+.dark-theme .basicLightbox__placeholder{
+  border-radius: 18px;
+    border: 2px solid #FFF;
+    background: #202024;
+}
 /* .icon-close {
     width: 12px;
     height: 12px;
@@ -122,6 +120,9 @@ body .basicLightbox--visible{
   margin-bottom: 4px;
   text-transform: uppercase;
 }
+.dark-theme .name-book-modal{
+color: #fff;
+}
 
 .author-book-modal {
   color: #b4afaf;
@@ -141,14 +142,19 @@ body .basicLightbox--visible{
 
   margin-bottom: 14px;
 }
+.dark-theme .abstract-book-modal{
+color: #fff;
+}
+
 .links-tradeplatforms-modal {
   display: inline-flex;
   align-items: center;
   gap: 20px;
   width: 36px;
 }
+
 .add-remove-btn {
-  width: 100%;
+  width: 211px;
 
   display: flex-block;
   padding: 14px 23px;
@@ -166,6 +172,11 @@ body .basicLightbox--visible{
   margin-bottom: 8px;
 }
 
+.dark-theme .add-remove-btn{
+background-color:#202024;
+color:#fff;
+}
+
 .congratulations-modal {
   /* display: inline-flexbox; */
   color: rgba(17, 17, 17, 0.5);
@@ -176,7 +187,9 @@ body .basicLightbox--visible{
   letter-spacing: -0.4px;
   width: 242px;
 }
-
+.dark-theme .congratulations-modal{
+  color: #fff;
+}
 /*медіа правила*/
 @media screen and (min-width: 768px) {
   .basicLightbox__placeholder {
@@ -217,6 +230,11 @@ body .basicLightbox--visible{
   .abstract-book-modal {
     margin-bottom: 20px;
   }
+  
+  .add-remove-btn {
+    width: 100%;
+  }
+
   .congratulations-modal {
     width: 324px;
   }

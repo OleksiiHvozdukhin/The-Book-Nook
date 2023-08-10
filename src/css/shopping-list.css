@@ -143,6 +143,9 @@ body.dark-theme .shopping-list-header {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+body.dark-theme .shoping-book-card-title {
+  color: #ffffff;
+}
 
 .shoping-book-card-description {
   color: rgba(17, 17, 17, 1);
@@ -153,6 +156,9 @@ body.dark-theme .shopping-list-header {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+body.dark-theme .shoping-book-card-description {
+  color: #ffffff;
 }
 
 .shoping-book-card-author {

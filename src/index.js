@@ -212,6 +212,30 @@ function handlerClickBook(evt) {
     >
               </div>`);
       instance.show();
+      const addButton = instance.element().querySelector('.add-remove-btn');
+      const congratulations = instance
+        .element()
+        .querySelector('.congratulations');
+
+      if (localStorage.getItem(_id) == 'BOOK') {
+        addButton.textContent = 'REMOVE FROM THE SHOPPING LIST';
+        congratulations.style.display = 'block';
+      } else {
+        addButton.textContent = 'ADD TO SHOPPING LIST';
+        congratulations.style.display = 'none';
+      }
+
+      addButton.addEventListener('click', () => {
+        if (localStorage.getItem(_id) == 'BOOK') {
+          localStorage.removeItem(_id);
+          addButton.textContent = 'ADD TO SHOPPING LIST';
+          congratulations.style.display = 'none';
+        } else {
+          localStorage.setItem(_id, 'BOOK');
+          addButton.textContent = 'REMOVE FROM THE SHOPPING LIST';
+          congratulations.style.display = 'block';
+        }
+      });
     });
   }
 }

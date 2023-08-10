@@ -30,6 +30,16 @@ if (localStorage.length > 1) {
         </div>
         <h4 class="shoping-book-card-author">${author}</h4>
       </div>
+      <div class="shoping-list-images">
+          <ul class="list-images">
+            <li><a href="https://www.amazon.com/" class="image-link image-link-amazon"></a></li>
+            <li><a href="https://www.openebooks.org/" class="image-link image-link-openBook"></a></li>
+            <li><a href="https://bookshop.org/" class="image-link image-link-bookShop"></a></li>
+          </ul>
+        </div>
+      <button class="shoping-list-btn">
+      
+    </button>
     </li>`
           );
         }

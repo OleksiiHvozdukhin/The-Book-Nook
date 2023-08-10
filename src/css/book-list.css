@@ -7,10 +7,15 @@
   font-size: 32px;
   line-height: 1.18; /* 38/32 */
   margin-bottom: 40px;
-  max-width: 260px;
+  /* max-width: 260px; */
   height: 38px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
+
+body.dark-theme .title {
+  color: #ffffff;
+}
+
 .books {
   color: #4f2ee8;
   font-size: 32px;
@@ -31,6 +36,11 @@
   color: #111111;
   margin-top: 14px;
 }
+
+body.dark-theme .book-title {
+  color: #ffffff;
+}
+
 .category-name {
   font-size: 14px;
   line-height: 1, 28; /* 18/14 */
@@ -45,7 +55,7 @@
   margin-bottom: 40px;
 }
 .item-image {
-  margin-top: 40px;
+  margin-top: 0;
 }
 .see-more-btn {
   display: block;
@@ -68,9 +78,69 @@
   background-color: #4f2ee8;
   border-color: transparent;
 }
+
+body.dark-theme .see-more-btn {
+  color: #ffffff;
+}
+
+.book_list {
+  margin-top: 40px;
+}
+
+ul.js-list {
+  padding-left: 0;
+}
+
+.category-menu.js-add-list {
+  padding-left: 0;
+}
+
+.btn-up {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #4f2ee8;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.btn-up::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  top: 40%;
+  left: 35%;
+}
+.btn-up_hiden {
+  display: none;
+}
+.btn-up:hover {
+  background-color: rgba(79, 46, 232, 0.7);
+}
+
 @media screen and (min-width: 768px) {
-  .section {
-    padding: 64px 0;
+  .section.book_list {
+    padding: 64px 0 0;
+    margin: 0;
+    padding-top: 100px;
+  }
+
+  .container.book-container {
+    padding-left: 0;
+  }
+
+  .title {
+    margin-top: 0;
+  }
+
+  .category-name {
+    margin-top: 0;
   }
 
   .container {
@@ -96,14 +166,16 @@
     width: 218px;
     height: 316px;
     object-fit: cover;
+    border-radius: 8px;
   }
   .see-more-btn {
     margin-top: 20px;
   }
 }
 @media screen and (min-width: 1440px) {
-  .section {
-    padding: 80px 0;
+  .section.book_list {
+    padding: 0;
+    padding-left: 40px;
   }
 
   .container {
@@ -119,11 +191,11 @@
   }
   .js-list,
   .category-menu {
-    gap: 13px;
+    gap: 0;
     max-width: 996px;
   }
   .book-container {
-    display: flex;
+    display: block;
     gap: 40px;
   }
   .see-more-btn {

@@ -16,7 +16,40 @@
   }
 
   .container {
-    max-width: 1252px;
+    max-width: 1440px;
     padding: 0 38px;
+  }
+
+  .main-container {
+    margin: 0 auto;
+    width: 1440px;
+    display: flex;
+    justify-content: left;
+    padding-top: 40px;
+  }
+
+  div.categories-and-support {
+    width: auto;
+    padding-right: 0px;
+    margin: 0px;
+  }
+
+  .book_list {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul.js-list {
+    padding-left: 0;
+  }
+
+  section.all_categories {
+    padding: 0;
+    margin: 0;
+    height: 472px;
+  }
+
+  section.support-ukraine {
+    margin: 86px 0 0 0;
   }
 }

@@ -1,10 +1,14 @@
 .shopping-list-header {
   margin-bottom: 40px;
+  margin-top: 40px;
   font-size: 32px;
   font-weight: 700;
   color: #111111;
 }
 
+body.dark-theme .shopping-list-header {
+  color: #ffffff;
+}
 .empty-shopping-list-div {
   padding: 80px 55px;
 }
@@ -23,13 +27,95 @@
   color: #4f2ee8;
 }
 
+.support-ukraine {
+  display: none;
+}
+
+.shopping-book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shoping-book-card {
+  display: flex;
+  gap: 14px;
+  width: 335px;
+  height: 170px;
+
+  padding: 14px;
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: #4f2ee866;
+  border-radius: 16px;
+}
+
+.shoping-book-card-img > img {
+  width: 100px;
+  height: 142px;
+}
+
+.shoping-book-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shoping-book-card-ganre {
+  color: rgba(180, 175, 175, 1);
+  font-size: 12px;
+  font-weight: 400;
+
+  padding-bottom: 4px;
+}
+
+.shoping-book-card-title_and_ganre {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shoping-book-card-title {
+  color: rgba(17, 17, 17, 1);
+  font-size: 16px;
+  font-weight: 700;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shoping-book-card-description {
+  color: rgba(17, 17, 17, 1);
+  font-size: 14px;
+  font-weight: 400;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shoping-book-card-author {
+  color: rgba(180, 175, 175, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}
+
 @media screen and (min-width: 768px) {
   .shopping-list-header {
     font-size: 48px;
   }
 
+  .shopping-list.section {
+    padding-top: 0px;
+  }
+
   .empty-shopping-list-div {
-    width: 349px;
+    width: 437px;
     padding-top: 100px;
     margin-inline: auto;
   }
@@ -37,6 +123,7 @@
   .empty-shopping-list-msg {
     font-size: 18px;
     margin-bottom: 20px;
+    margin-top: 0;
   }
 
   .empty-shopping-list-img {
@@ -44,12 +131,69 @@
     height: 241px;
   }
 
+  .shoping-book-card {
+    width: 704px;
+    height: 213px;
+
+    padding: 24px;
+
+    gap: 24px;
+  }
+
+  .shoping-book-card-img > img {
+    width: 116px;
+    height: 165px;
+  }
+
+  .shoping-book-card-ganre {
+    padding-bottom: 10px;
+  }
+
   @media screen and (min-width: 1440px) {
     .shopping-list-div {
       width: 996px;
     }
+
+    .container-shop {
+      display: flex;
+      justify-content: left;
+      align-items: start;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 1440px;
+    }
+
+    .shop-list-support-ukraine > section.support-ukraine {
+      display: block;
+      margin: 0px;
+      margin-top: 0px;
+    }
+    div.shopping-list-div {
+      padding-left: 40px;
+    }
     .book-card-description {
       width: 808px;
+    }
+
+    .shopping-list-header {
+      margin-top: 0;
+    }
+
+    .container-shop {
+      margin-top: 40px;
+    }
+
+    .shoping-book-card {
+      width: 996px;
+    }
+
+    .shoping-book-card-img > img {
+      width: 116px;
+      height: 165px;
+    }
+
+    .shoping-book-card-ganre {
+      padding-bottom: 10px;
     }
   }
 }

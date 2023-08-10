@@ -29,7 +29,6 @@ section.all_categories.active {
   margin-left: 40px;
   margin-top: 40px;
   margin-bottom: 16px;
-  overflow: hidden;
   transition: height 0.3s ease;
 }
 

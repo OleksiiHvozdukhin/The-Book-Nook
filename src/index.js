@@ -199,7 +199,7 @@ function handlerClickBook(evt) {
       const instance = basicLightbox.create(`
       <button type="button" class="btn-modal-close">
       <svg width="24" height="24">
-        <use href="./images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
+        <use href="../images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
       </svg>
     </button>
       <div class="selected-book-modal">
@@ -210,13 +210,13 @@ function handlerClickBook(evt) {
             <p class="abstract-book-modal">${description}</p>
             <ul class="links-tradeplatforms-modal">
               <li class="link-tradeplatform">
-                <a href="${buy_links[0].url}" target="_blank">
-                  <img src="../images/6-Pop Up/amazon.png" alt="логотип Amazone">
-                </a>            
+              <a href="${buy_links[0].url}" target="_blank">
+                  <img src="./images/6-Pop Up/amazon.png" alt="логотип Amazone">
+              </a>
               </li>
               <li class="link-tradeplatform">
                 <a href="${buy_links[1].url}" target="_blank">
-                  <img src="../images/6-Pop Up/amazon.png" alt="логотип AppleBooks">
+                  <img src="./images/6-Pop Up/book.png" alt="логотип AppleBooks">
                 </a>
               </li>
               <li class="link-tradeplatform">
@@ -237,11 +237,16 @@ function handlerClickBook(evt) {
       //no scroll по відкриттю модалки, на закриття треба повішати scroll
       // instance.visible(document.body.style.cssText = `overflow: hidden;`);
       instance.show();
-    });
-    //додає no scroll поки відкрита модалка
-    // document.body.style.cssText = `overflow: hidden;`;
-    
+    });       
   }
+  // const closeModalBtn = evt.target.closest('btn-modal-close');
+  // if (closeModalBtn)
+  //   instance.close();
+  // else instance.close();
+
+  // console.log(12345);
+  // const closeModal = document.instance.element.getElementsByClassName('btn-modal-close');
+  // closeModal.addEventListener('click', console.log('click off'));
 }
 
 function createBooks(arr) {

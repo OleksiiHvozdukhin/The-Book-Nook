@@ -171,6 +171,10 @@ color: #fff;
 
   margin-bottom: 8px;
 }
+.add-remove-btn:hover
+.add-remove-btn:focus{
+  background-color: #4f2ee8;
+}
 
 .dark-theme .add-remove-btn{
 background-color:#202024;

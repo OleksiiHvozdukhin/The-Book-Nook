@@ -30,6 +30,14 @@ a {
   background-color: #eac645;
 }
 
+.curent-link.shoping-list::after {
+  content: url(../images/1-Header/cart-black.svg);
+  margin-left: 4px;
+  width: 20px;
+  height: 20px;
+  
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -323,6 +331,10 @@ body.dark-theme {
     padding: 0;
   }
 
+  .header-container {
+    padding: 0 32px;
+  }
+
   .curent-link {
     font-weight: 700;
   }
@@ -345,6 +357,14 @@ body.dark-theme {
     content: url(../images/1-Header/cart-black.svg);
   }
 
+    .curent-link .shoping-list::after {
+      content: url(../images/1-Header/cart-black.svg);
+      margin-left: 4px;
+      width: 20px;
+      height: 20px;
+  
+    }
+
   .header-btn-mobil-menu {
     display: none;
   }
@@ -357,12 +377,16 @@ body.dark-theme {
     content: url(../images/1-Header/cart.svg);
   }
 
+  .dark-theme .curent-link.shoping-list::after {
+    content: url(../images/1-Header/cart-black.svg);
+  }
+
   .dark-theme .menu-list-nav {
     color: #ffffff;
   }
 
   .sign-up {
-    padding: 14px 12px 14px 0;
+    padding: 14px 0;
   }
 
   .sign-up-btn {
@@ -403,4 +427,9 @@ body.dark-theme {
   .header-list {
     margin-left: 76px;
   }
+
+    .header-container {
+      padding: 0 24px;
+    }
+
 }

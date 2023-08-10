@@ -63,7 +63,7 @@ button {
 
 .modal {
   position: absolute;
-  max-width: 335px;
+  width: 335px;
   /* height: 762px;  */
   padding: 40px 24px;
 
@@ -71,6 +71,10 @@ button {
   flex-direction: column;
   /* overflow: auto; */
   align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  height: 762px;
 
   top: 50%;
   left: 50%;
@@ -78,8 +82,71 @@ button {
   border: 2px solid #111;
   background: #fff;
   transform: translate(-50%, -50%) scale(1);
+  transition: height 0.4s ease;
 }
 
+.modal.active {
+  height: 806px;
+}
+
+.modal > div > img {
+  width: 287px;
+  height: 408px;
+}
+
+.modal-imgDescript > div > h3 {
+  color: rgba(17, 17, 17, 1);
+  font-size: 16px;
+  font-weight: 700;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  padding-top: 10px;
+}
+
+.modal-author {
+  color: rgba(180, 175, 175, 1);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.modal-description {
+  color: rgba(17, 17, 17, 1);
+  font-size: 14px;
+  font-weight: 400;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  padding-top: 12px;
+}
+
+.modal > .modal-buttons {
+  display: flex;
+  flex-direction: column;
+  /* overflow: auto; */
+  align-items: center;
+
+  gap: 8px;
+}
+
+.modal > div > .congratulations {
+  margin: 0;
+}
+
+.modal-imgDescript {
+  display: flex;
+  flex-direction: column;
+  /* overflow: auto; */
+
+  gap: 4px;
+}
 /* .icon-close {
     width: 12px;
     height: 12px;
@@ -138,14 +205,16 @@ button {
   gap: 20px;
   width: 36px;
 }
+
 .add-remove-btn {
   width: 100%;
 
   display: flex-block;
-  padding: 14px 23px;
+  padding: 14px 0px;
   align-items: flex-start;
 
-  color: #111;
+  color: rgba(17, 17, 17, 1);
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.14px;
@@ -154,7 +223,14 @@ button {
   border-radius: 40px;
   border: 2px solid #4f2ee8;
 
-  margin-bottom: 8px;
+  width: 279px;
+  height: 46px;
+
+  transition: opacity 0.3s ease;
+}
+
+.add-remove-btn.clicked {
+  opacity: 0;
 }
 
 .congratulations {
@@ -172,8 +248,34 @@ button {
 @media screen and (min-width: 768px) {
   .modal {
     width: 579px;
+    height: 465px;
     padding: 40px;
   }
+
+  .modal.active {
+    height: 501px;
+  }
+
+  .modal-imgDescript {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .modal-imgDescript > div > h3 {
+    padding-top: 0;
+  }
+
+  .modal-imgDescript > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal > div > img {
+    width: 192px;
+    height: 281px;
+  }
+
   .btn-modal-close {
     top: 24px;
     right: 24px;

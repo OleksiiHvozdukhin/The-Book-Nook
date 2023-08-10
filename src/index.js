@@ -194,49 +194,65 @@ function handlerClickBook(evt) {
   const bookItem = evt.target.closest('.js-book-item');
   if (bookItem) {
     const { id } = bookItem.dataset;
-    servicesSelectedBook(id).then(({ _id, book_image, author, title }) => {
-      const instance = basicLightbox.create(`<div class="modal">
+    servicesSelectedBook(id).then(
+      ({ _id, book_image, author, title, description }) => {
+        const instance = basicLightbox.create(`<div class="modal">
       <button type="button" class="btn-modal-close" data-modal-close>
       <svg width="24" height="24">
         <use href="./images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
       </svg>
     </button>
+        <div class="modal-imgDescript">
                <img src="${book_image}" alt="${_id}"width="335" height="485">
+                <div>
                 <h3>${title}</h3>
-                <p>${author}</p>
-                
+                <p class="modal-author">${author}</p>
+                <p class="modal-description">${description}</p>
+                </div>
+       </div>    
+       <div class="modal-buttons">     
     <button class="add-remove-btn">Add to shoping list</button>
     <span class="congratulations"
       >Сongratulations! You have added the book to the shopping list. To delete,
       press the button "Remove from the shopping list".</span
     >
+    </div>
               </div>`);
-      instance.show();
-      const addButton = instance.element().querySelector('.add-remove-btn');
-      const congratulations = instance
-        .element()
-        .querySelector('.congratulations');
+        instance.show();
 
-      if (localStorage.getItem(_id) == 'BOOK') {
-        addButton.textContent = 'REMOVE FROM THE SHOPPING LIST';
-        congratulations.style.display = 'block';
-      } else {
-        addButton.textContent = 'ADD TO SHOPPING LIST';
-        congratulations.style.display = 'none';
-      }
+        const modal = document.querySelector('.modal');
+        const addButton = instance.element().querySelector('.add-remove-btn');
+        const congratulations = instance
+          .element()
+          .querySelector('.congratulations');
 
-      addButton.addEventListener('click', () => {
         if (localStorage.getItem(_id) == 'BOOK') {
-          localStorage.removeItem(_id);
-          addButton.textContent = 'ADD TO SHOPPING LIST';
-          congratulations.style.display = 'none';
-        } else {
-          localStorage.setItem(_id, 'BOOK');
           addButton.textContent = 'REMOVE FROM THE SHOPPING LIST';
           congratulations.style.display = 'block';
+        } else {
+          addButton.textContent = 'ADD TO SHOPPING LIST';
+          congratulations.style.display = 'none';
         }
-      });
-    });
+
+        addButton.addEventListener('click', () => {
+          addButton.classList.add('clicked');
+          if (localStorage.getItem(_id) == 'BOOK') {
+            localStorage.removeItem(_id);
+            addButton.textContent = 'ADD TO SHOPPING LIST';
+            congratulations.style.display = 'none';
+            modal.classList.remove('active');
+          } else {
+            localStorage.setItem(_id, 'BOOK');
+            addButton.textContent = 'REMOVE FROM THE SHOPPING LIST';
+            congratulations.style.display = 'block';
+            modal.classList.add('active');
+          }
+          setTimeout(() => {
+            addButton.classList.remove('clicked');
+          }, 100);
+        });
+      }
+    );
   }
 }
 

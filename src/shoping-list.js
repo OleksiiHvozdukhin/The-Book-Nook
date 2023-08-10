@@ -16,7 +16,6 @@ if (localStorage.length > 1) {
     if (localStorage[key] == 'BOOK')
       servicesSelectedBook(key).then(
         ({ _id, book_image, author, title, description, list_name }) => {
-          console.log(_id);
           bookList.insertAdjacentHTML(
             'beforeend',
             `<li class="shoping-book-card">

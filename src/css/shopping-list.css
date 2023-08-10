@@ -42,6 +42,7 @@ body.dark-theme .shopping-list-header {
   gap: 14px;
   width: 335px;
   height: 170px;
+  position: relative;
 
   padding: 14px;
 
@@ -105,6 +106,67 @@ body.dark-theme .shopping-list-header {
   font-style: italic;
 }
 
+.shoping-list-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  background-color: #4f2ee8;
+
+  background-image: url(../images/5-Shoping\ List/icon-basket.png);
+  background-repeat: no-repeat;
+background-position: center;
+
+  
+  stroke: #ffffff;
+  fill: #4f2ee8;
+border-radius: 50%;
+border: transparent;
+}
+
+.shoping-list-images {
+position: absolute;
+bottom: 14px;
+right: 14px;
+}
+
+.list-images {
+  display: flex;
+  gap: 20px;
+align-items: center;
+ 
+}
+
+.image-link {
+  display: block;
+  
+}
+
+.image-link-amazon {
+  background-image: url(../images/5-Shoping\ List/image-amazon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 32px;
+  height: 11px;
+}
+
+.image-link-openBook {
+  background-image: url(../images/5-Shoping\ List/image-open-book.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+}
+
+.image-link-bookShop {
+  background-image: url(../images/5-Shoping\ List/image-book-shop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+}
+
 @media screen and (min-width: 768px) {
   .shopping-list-header {
     font-size: 48px;
@@ -148,6 +210,34 @@ body.dark-theme .shopping-list-header {
   .shoping-book-card-ganre {
     padding-bottom: 10px;
   }
+
+  .image-link-bookShop {
+    width: 32px;
+  height: 30px;
+  }
+
+  .image-link-openBook {
+    width: 28px;
+    height: 27px;
+  }
+
+  .image-link-amazon {
+    width: 43px;
+    height: 15px;
+  }
+  
+  .shoping-list-images {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .shoping-list-btn {
+    top: 24px;
+    right: 24px;
+    width: 34px;
+    height: 34px;
+  }
+}
 
   @media screen and (min-width: 1440px) {
     .shopping-list-div {
@@ -196,4 +286,4 @@ body.dark-theme .shopping-list-header {
       padding-bottom: 10px;
     }
   }
-}
+

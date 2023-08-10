@@ -28,15 +28,19 @@ function displayPage(pageNumber) {
   const keys = Object.keys(localStorage);
 
   bookList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
-  for (let i = startIndex; i < endIndex && i < keys.length; i++) {
-    const key = keys[i];
-    if (localStorage[key] === 'BOOK') {
-      const clearShopList = document.querySelector('.empty-shopping-list-div');
-      servicesSelectedBook(key).then(
-        ({ _id, book_image, author, title, description, list_name }) => {
-          bookList.insertAdjacentHTML(
-            'beforeend',
-            `<li class="shoping-book-card">
+  if (localStorage.length > 1) {
+    console.log(localStorage);
+    for (let i = startIndex; i < endIndex && i < keys.length; i++) {
+      const key = keys[i];
+      if (localStorage[key] === 'BOOK') {
+        const clearShopList = document.querySelector(
+          '.empty-shopping-list-div'
+        );
+        servicesSelectedBook(key).then(
+          ({ _id, book_image, author, title, description, list_name }) => {
+            bookList.insertAdjacentHTML(
+              'beforeend',
+              `<li class="shoping-book-card">
               <div class="shoping-book-card-img">
         <img src="${book_image}" alt="${_id}"width="335" height="485">
       </div>
@@ -59,14 +63,22 @@ function displayPage(pageNumber) {
       
     </button>
             </li>`
-          );
-        }
-      );
-      clearShopList.style.display = 'none';
-    } else {
-      const clearShopList = document.querySelector('.empty-shopping-list-div');
-      clearShopList.style.display = 'block';
+            );
+          }
+        );
+
+        const pagination = document.querySelector('.pagination');
+        pagination.style.display = 'flex';
+        clearShopList.style.display = 'none';
+      }
     }
+  } else {
+    console.log(localStorage);
+    const clearShopList = document.querySelector('.empty-shopping-list-div');
+    clearShopList.style.display = 'block';
+
+    const pagination = document.querySelector('.pagination');
+    pagination.style.display = 'none';
   }
 }
 

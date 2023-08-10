@@ -6,6 +6,14 @@
   color: #111111;
 }
 
+.js-books {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+}
+
 .pagination {
   display: flex;
   gap: 14px;

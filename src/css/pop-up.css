@@ -36,7 +36,7 @@ button {
 /* -----------Resets end----------*/
 
 /*--------------Back drop---------*/
-.backdrop {
+/* .backdrop {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -47,33 +47,40 @@ button {
   left: 0;
   z-index: 10;
   background: rgba(17, 17, 17, 0.4);
-}
+} */
 
-.backdrop.is-hidden {
+/* .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
   transform: scale(0.5);
-}
+} */
 
 .basicLightbox {
-  height: 100%;
+  /* height: 100%; */
+  background: rgba(17, 17, 17, 0.4);
+  
 }
-/* modal*/
 
-.modal {
+/* modal*/
+body .basicLightbox--visible{
+  overflow: hidden;
+}
+/* .basicLightbox--visible{
+  overflow: hidden;
+} */
+
+.basicLightbox__placeholder {
   position: absolute;
-  max-width: 335px;
+  width: 335px;
   /* height: 762px;  */
   padding: 40px 24px;
 
   display: flex;
-  flex-direction: column;
-  /* overflow: auto; */
+  flex-direction: column; 
   align-items: center;
+ 
 
-  top: 50%;
-  left: 50%;
   border-radius: 18px;
   border: 2px solid #111;
   background: #fff;
@@ -97,14 +104,16 @@ button {
   justify-content: center;
   align-items: center;
 }
-.selected-book {
+.selected-book-modal {
   margin-bottom: 40px;
 }
-.cover-book {
+.cover-book-modal {
+  width: 287px;
+  height: 408px;
   margin-bottom: 14px;
 }
 
-.name-book {
+.name-book-modal {
   color: #111;
   font-size: 16px;
   font-weight: 700;
@@ -114,7 +123,7 @@ button {
   text-transform: uppercase;
 }
 
-.author-book {
+.author-book-modal {
   color: #b4afaf;
   font-size: 12px;
   font-style: italic;
@@ -124,7 +133,7 @@ button {
   margin-bottom: 18px;
 }
 
-.abstract-book {
+.abstract-book-modal {
   color: #111;
   font-weight: 400;
   line-height: 1.28;
@@ -132,7 +141,7 @@ button {
 
   margin-bottom: 14px;
 }
-.links-tradeplatforms {
+.links-tradeplatforms-modal {
   display: inline-flex;
   align-items: center;
   gap: 20px;
@@ -157,7 +166,7 @@ button {
   margin-bottom: 8px;
 }
 
-.congratulations {
+.congratulations-modal {
   /* display: inline-flexbox; */
   color: rgba(17, 17, 17, 0.5);
   text-align: center;
@@ -170,7 +179,7 @@ button {
 
 /*медіа правила*/
 @media screen and (min-width: 768px) {
-  .modal {
+  .basicLightbox__placeholder {
     width: 579px;
     padding: 40px;
   }
@@ -178,17 +187,17 @@ button {
     top: 24px;
     right: 24px;
   }
-  .selected-book {
+  .selected-book-modal {
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
   }
-  .cover-book {
+  .cover-book-modal {
     height: 281px;
     width: 192px;
     margin-right: 24px;
   }
-  .name-book {
+  .name-book-modal {
     color: #111;
     font-size: 24px;
     line-height: 1.16;
@@ -196,7 +205,7 @@ button {
 
     margin-bottom: 8px;
   }
-  .author-book {
+  .author-book-modal {
     color: #b4afaf;
     font-size: 14px;
     font-style: italic;
@@ -205,10 +214,10 @@ button {
     letter-spacing: -0.56px;
     margin-bottom: 20px;
   }
-  .abstract-book {
+  .abstract-book-modal {
     margin-bottom: 20px;
   }
-  .congratulations {
+  .congratulations-modal {
     width: 324px;
   }
 }

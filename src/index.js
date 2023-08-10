@@ -234,7 +234,8 @@ function handlerClickBook(evt) {
       press the button "Remove from the shopping list".</span
     >
               `);
-      instance.visible(document.body.style.cssText = `overflow: hidden;`);
+      //no scroll по відкриттю модалки, на закриття треба повішати scroll
+      // instance.visible(document.body.style.cssText = `overflow: hidden;`);
       instance.show();
     });
     //додає no scroll поки відкрита модалка

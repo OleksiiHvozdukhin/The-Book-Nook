@@ -190,29 +190,56 @@ function createCategory(arr) {
 }
 
 // MODAL
+
 function handlerClickBook(evt) {
   const bookItem = evt.target.closest('.js-book-item');
   if (bookItem) {
     const { id } = bookItem.dataset;
-    servicesSelectedBook(id).then(({ _id, book_image, author, title }) => {
-      const instance = basicLightbox.create(`<div class="modal">
-      <button type="button" class="btn-modal-close" data-modal-close>
+    servicesSelectedBook(id).then(({ book_image, title, author, description, buy_links }) => {
+      const instance = basicLightbox.create(`
+      <button type="button" class="btn-modal-close">
       <svg width="24" height="24">
         <use href="./images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
       </svg>
     </button>
-               <img src="${book_image}" alt="${_id}"width="335" height="485">
-                <h3>${title}</h3>
-                <p>${author}</p>
+      <div class="selected-book-modal">
+      <img class="cover-book-modal" src="${book_image}" alt="обкладинка книжки">     
+          <div>
+            <h3 class="name-book-modal">${title}</h3>
+            <p class="author-book-modal">${author}</p>
+            <p class="abstract-book-modal">${description}</p>
+            <ul class="links-tradeplatforms-modal">
+              <li class="link-tradeplatform">
+                <a href="${buy_links[0].url}" target="_blank">
+                  <img src="../images/6-Pop Up/amazon.png" alt="логотип Amazone">
+                </a>            
+              </li>
+              <li class="link-tradeplatform">
+                <a href="${buy_links[1].url}" target="_blank">
+                  <img src="../images/6-Pop Up/amazon.png" alt="логотип AppleBooks">
+                </a>
+              </li>
+              <li class="link-tradeplatform">
+                <a href="${buy_links[4].url}" target="_blank">
+                  <img src="./images/6-Pop Up/bookShop.png" alt="логотип BookShop">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>    
                 
     <button class="add-remove-btn">Add to shoping list</button>
-    <span class="congratulations"
+    <span class="congratulations-modal"
       >Сongratulations! You have added the book to the shopping list. To delete,
       press the button "Remove from the shopping list".</span
     >
-              </div>`);
+              `);
+      instance.visible(document.body.style.cssText = `overflow: hidden;`);
       instance.show();
     });
+    //додає no scroll поки відкрита модалка
+    // document.body.style.cssText = `overflow: hidden;`;
+    
   }
 }
 

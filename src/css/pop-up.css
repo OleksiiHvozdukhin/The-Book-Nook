@@ -250,6 +250,8 @@ button {
     width: 579px;
     height: 465px;
     padding: 40px;
+
+    align-items: start;
   }
 
   .modal.active {
@@ -271,6 +273,10 @@ button {
     gap: 8px;
   }
 
+  .modal-buttons {
+    align-items: center;
+    margin: 0 auto;
+  }
   .modal > div > img {
     width: 192px;
     height: 281px;

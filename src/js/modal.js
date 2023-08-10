@@ -9,7 +9,26 @@
   refs.openModal.addEventListener('click', toggleModalOpen);
   refs.closeModal.addEventListener('click', toggleModalClose);
   
-//запит на книжку в бекенда
+
+localStorage.setItem('list', JSON.stringify([]));
+
+let bookList = localStorage.getItem('list');
+console.log(bookList);
+// Функція для додавання ID книги до списку
+function addBookToList(bookId) {
+    bookList.push(bookId);
+  localStorage.setItem('list', JSON.stringify(bookList));
+
+  toggleModalClose();
+  refs.addRemoveBtn.addEventListener.clear();
+}
+ 
+// Функція для видалення ID книги зі списку
+function removeBookFromList(bookId) {
+    bookList = bookList.filter(id => id !== bookId);
+    localStorage.setItem('list', JSON.stringify(bookList));
+}
+  
 
 function toggleModalOpen() {
   refs.modal.classList.toggle('is-hidden');
@@ -18,6 +37,7 @@ function toggleModalOpen() {
   const ID = refs.openModal.getAttribute('id');
   const APIURL = `https://books-backend.p.goit.global/books/${ID}`;
 
+  //запит на книжку в бекенда
    fetch(APIURL)
       .then(response => {      
       if (!response.ok) {
@@ -26,15 +46,18 @@ function toggleModalOpen() {
       return response.json();
     })
     .then(data => {     
-      refs.selectedBook.insertAdjacentHTML('beforeend', createBook(data));  
-      // if (data._id == localStorage.getItem('list', _id)) {
-      //   refs.addRemoveBtn.textContent = "Add to shopping list";
-      //   refs.addRemoveBtn.getAttribute('data-add', data._id);
-      // }
-      // else {
-      //   refs.addRemoveBtn.textContent = "remove from the shopping list";
-      //   refs.addRemoveBtn.getAttribute('data-remove', data._id);
-      // }
+      refs.selectedBook.insertAdjacentHTML('beforeend', createBook(data)); 
+      // Отримуємо список книжок з LocalStorage або встановлюємо за замовчуванням
+     
+      if (bookList.includes(data._id)) {
+        refs.addRemoveBtn.innerHTML = "Remove";
+        refs.addRemoveBtn.addEventListener('click', addBookToList(data._id));
+      }
+      else {
+        console.log(bookList);
+        refs.addRemoveBtn.innerHTML = "Add";
+         }
+      
       })
       .catch(error => {
         // console.error('Error:', error);
@@ -75,5 +98,6 @@ function toggleModalClose() {
     refs.modal.classList.toggle('is-hidden');
     document.body.classList.toggle('no-scroll');  
   
-    refs.selectedBook.innerHTML = '';
+  refs.selectedBook.innerHTML = '';
+  localStorage.clear();
   }

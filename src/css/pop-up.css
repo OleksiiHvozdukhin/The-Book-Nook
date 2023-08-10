@@ -143,7 +143,8 @@ button {
 }
 
 .add-remove-btn{
-    width: 100%;   
+    width: 279px;  
+    height: 46px; 
 
     display: flex-block;
     padding: 14px 23px;
@@ -196,6 +197,7 @@ button {
         width: 192px;
         height: 281px;
         margin-right: 24px;
+        margin-bottom: 0;
     }
     .name-book-modal{
         color: #111;
@@ -216,6 +218,10 @@ button {
     }
     .abstract-book-modal{
         margin-bottom: 20px;
+    }
+    .add-remove-btn {
+        width: 499px;
+        height: 64px;
     }
     .congratulations-modal{
         width: 324px;

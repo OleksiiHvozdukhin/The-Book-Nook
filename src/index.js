@@ -20,7 +20,7 @@ function toggleTheme() {
   }
 }
 
-console.log('Fqwe');
+// console.log('Fqwe');
 
 function setDarkThemeStyles() {
   header.style.setProperty('--header-bg-color-light', '#111111');
@@ -159,21 +159,23 @@ serviceCategory()
 
 // КЛИК ПО КАТЕГОРИИ
 function onClick(evt) {
-  let result = evt.target.textContent;
-  result = result.trimStart();
-  console.log(result);
-  serviceThisCategory(result)
-    .then(data => {
-      listBook.innerHTML = createBooks(data);
-      const row = data[0].list_name;
-      const textElement = row.split(' ');
-      const titleCategory = textElement
-        .splice(0, textElement.length - 1)
-        .join(' ');
-      const spanCategory = textElement[textElement.length - 1];
-      newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
-    })
-    .catch(err => console.log(err));
+  const listItem = evt.target.closest('.category_item');
+  if (listItem) {
+    let result = evt.target.textContent;
+    result = result.trimStart();
+    serviceThisCategory(result)
+      .then(data => {
+        listBook.innerHTML = createBooks(data);
+        const row = data[0].list_name;
+        const textElement = row.split(' ');
+        const titleCategory = textElement
+          .splice(0, textElement.length - 1)
+          .join(' ');
+        const spanCategory = textElement[textElement.length - 1];
+        newTitle.innerHTML = `${titleCategory} <span class="books">${spanCategory}</span>`;
+      })
+      .catch(err => console.log(err));
+  }
 }
 
 function createMarcup(arr) {
@@ -191,7 +193,6 @@ function createMarcup(arr) {
 
 // СОЗДАНИЕ СПИСКА КАТЕГОРИЙ
 function createCategory(arr) {
-  console.log(arr);
   return arr
     .map(
       ({ list_name }) => `<li class="js-item-category category_item">
@@ -207,7 +208,8 @@ function handlerClickBook(evt) {
     const { id } = bookItem.dataset;
     servicesSelectedBook(id).then(
       ({ _id, book_image, author, title, description }) => {
-        const instance = basicLightbox.create(`<div class="modal">
+        const instance = basicLightbox.create(
+          `<div class="modal">
       <button type="button" class="btn-modal-close" data-modal-close>
       <svg width="24" height="24">
         <use href="./images/icons-sprite/symbol-defs.svg#icon-x-closer"></use>
@@ -228,7 +230,8 @@ function handlerClickBook(evt) {
       press the button "Remove from the shopping list".</span
     >
     </div>
-              </div>`);
+              </div>`
+        );
         instance.show();
 
         const modal = document.querySelector('.modal');
@@ -303,11 +306,11 @@ function onClickBtn(evt) {
 const btnUp = {
   el: document.querySelector('.btn-up'),
   show() {
-    // удалим у кнопки класс btn-up_hide
+    // удалим у кнопки класс btn-up_hiden
     this.el.classList.remove('btn-up_hiden');
   },
   hide() {
-    // добавим к кнопке класс btn-up_hide
+    // добавим к кнопке класс btn-up_hiden
     this.el.classList.add('btn-up_hiden');
   },
   addEventListener() {
@@ -315,7 +318,7 @@ const btnUp = {
     window.addEventListener('scroll', () => {
       // определяем величину прокрутки
       const scrollY = window.scrollY || document.documentElement.scrollTop;
-      // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
+      // если страница прокручена больше чем на 200px, то делаем кнопку видимой, иначе скрываем
       scrollY > 200 ? this.show() : this.hide();
     });
     // при нажатии на кнопку .btn-up

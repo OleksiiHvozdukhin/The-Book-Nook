@@ -22,16 +22,10 @@ const nextNumerBtn = document.querySelector('.next-numer-btn');
 const nextBtn = document.querySelector('.next-btn');
 const lastBtn = document.querySelector('.last-btn');
 
-console.log(
-  'Количество элементов в локальном хранилище: ' + localStorage.length
-);
-
 function secondToLastKeyFromLocalStorage() {
-  console.log('ИЩЕТ ПРЕДПОСЛЕДНИЙ ЭЛЕМЕТ');
   const keys = Object.keys(localStorage);
 
   if (keys.length >= 2) {
-    console.log(keys);
     if (keys[keys.length - 2] == 'theme') return keys[keys.length - 1];
     else return keys[keys.length - 2];
   }
@@ -44,23 +38,15 @@ function searchMoreElement() {
   ).map(element => element.classList[1]);
 
   for (const key of keys) {
-    // Проверяем, что значение по ключу равно 'BOOK'
     if (localStorage[key] === 'BOOK') {
-      // Получаем последние 5 цифр из ключа
       const idFromKey = key.slice(-5);
 
-      // Проверяем, что такого id нет среди существующих на странице
       if (!existingIds.includes(idFromKey)) {
-        console.log('firstID');
-        console.log(key);
         return key; // Возвращаем первый найденный отсутствующий id
       }
     }
   }
 }
-
-console.log('ОБДЖЕКТ КЕЙС');
-console.log(Object.keys(localStorage));
 
 function renderingLiElement(key) {
   servicesSelectedBook(key).then(
@@ -74,7 +60,6 @@ function renderingLiElement(key) {
       <div class="shoping-book-card-text">
         <div class="shoping-book-card-title_and_ganre">
             <h3 class="shoping-book-card-title">${title}</h3>
-            <h3 class="shoping-book-card-title">${_id}</h3>
             <h4 class="shoping-book-card-ganre">${list_name}</h4>
             <p class="shoping-book-card-description">${description}</p>
         </div>
@@ -95,7 +80,6 @@ function renderingLiElement(key) {
     </button>
             </li>`
       );
-      console.log(`ОТРИСОВЫВАЮ ${_id}`);
       const deleteButton = document.querySelector(
         `.shoping-list-btn${title
           .toLowerCase()
@@ -105,8 +89,6 @@ function renderingLiElement(key) {
       // КНОПКА УДАЛЕНИЯ
       ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       deleteButton.addEventListener('click', () => {
-        console.log('DO');
-        console.log(localStorage);
         const listItem = deleteButton.closest('.shoping-book-card');
         if (listItem) {
           bookList.removeChild(listItem);
@@ -125,7 +107,7 @@ function renderingLiElement(key) {
           }
           if (remainingItems.length < 3 && localStorage.length > 3) {
             renderingLiElement(searchMoreElement());
-            console.log('Запускает отрисовку');
+            numerationButton();
           }
         }
       });
@@ -138,22 +120,18 @@ function displayPage(pageNumber) {
   const startIndex = (pageNumber - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
   const keys = Object.keys(localStorage);
-  console.log(localStorage);
+
   bookList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
   if (localStorage.length > 1) {
     for (let i = startIndex; i < endIndex && i < keys.length; i++) {
       let key;
-      console.log('ЭЛЕМЕНТ');
-      // ТУТ ОШИБКА, СКОРЕЕ ВСЕГО
-      if (keys[i] === 'theme')
-        if (keys[keys.lendth - 1] == 'theme') key = keys[keys.length - 2];
-        else key = keys[keys.length - 1];
-      else key = keys[i];
 
-      console.log(keys);
-      console.log(keys[i]);
-      console.log(`Количество єлементов в списке: ${keys.length}`);
-      console.log(`ПОСЛЕДНИЙ ЭЛЕМЕНТ ${keys[keys.length - 1]}`);
+      if (keys.length > 3) {
+        if (keys[i] === 'theme')
+          if (keys[keys.lendth - 1] == 'theme') key = keys[keys.length - 2];
+          else key = keys[keys.length - 1];
+        else key = keys[i];
+      } else key = keys[i];
 
       if (localStorage[key] === 'BOOK') {
         const clearShopList = document.querySelector(
@@ -163,7 +141,14 @@ function displayPage(pageNumber) {
         renderingLiElement(key);
 
         const pagination = document.querySelector('.pagination');
-        pagination.style.display = 'flex';
+
+        const totalBooks = Object.keys(localStorage).filter(
+          key => localStorage[key] === 'BOOK'
+        ).length;
+
+        if (totalBooks <= 3) pagination.style.display = 'none';
+        else pagination.style.display = 'flex';
+
         clearShopList.style.display = 'none';
       }
     }
@@ -189,6 +174,9 @@ function numerationButton() {
 
   if (currentPage == 1) prevNumerBtn.textContent = '-';
   if (currentPage == totalPages) nextNumerBtn.textContent = '-';
+
+  const pagination = document.querySelector('.pagination');
+  if (totalBooks <= 3) pagination.style.display = 'none';
 }
 
 firstBtn.addEventListener('click', () => {

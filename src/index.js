@@ -221,6 +221,11 @@ function handlerClickBook(evt) {
                 <h3>${title}</h3>
                 <p class="modal-author">${author}</p>
                 <p class="modal-description">${description}</p>
+                <ul class="list-images">
+            <li><a href="https://www.amazon.com/" class="image-link image-link-amazon"></a></li>
+            <li><a href="https://www.openebooks.org/" class="image-link image-link-openBook"></a></li>
+            <li><a href="https://bookshop.org/" class="image-link image-link-bookShop"></a></li>
+          </ul>
                 </div>
        </div>    
        <div class="modal-buttons">     

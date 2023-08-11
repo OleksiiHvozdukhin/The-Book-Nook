@@ -10,7 +10,6 @@ ul {
 }
 
 a {
-  color: currentColor;
   text-decoration: none;
 }
 
@@ -36,12 +35,14 @@ a {
   margin-left: 4px;
   width: 20px;
   height: 20px;
-  
 }
 
 .header-container {
   display: flex;
   align-items: center;
+
+  margin: 0 auto;
+  max-width: 375px;
 }
 
 .container {
@@ -288,13 +289,13 @@ input:checked + .slider:before {
   margin: 6px 0;
 }
 
-header.dark-theme {
+header.dark-theme > .header-container {
   background-color: #111111;
   transition: background-color 0.4s;
 }
 
 body {
-  background-color: #ffffff;
+  background-color: rgba(246, 246, 246, 1);
   transition: background-color 0.4s;
 }
 
@@ -320,7 +321,7 @@ body.dark-theme {
 .header-container {
   z-index: 2;
   position: relative;
-  background-color: var(--header-bg-color-light);
+  background-color: rgba(255, 255, 255, 1);
   border: 2px solid var(--header-border-color-light);
   border-radius: 0 0 8px 8px;
   padding: 18px 20px;
@@ -334,6 +335,8 @@ body.dark-theme {
 
   .header-container {
     padding: 0 32px;
+
+    max-width: 768px;
   }
 
   .curent-link {
@@ -358,13 +361,12 @@ body.dark-theme {
     content: url(../images/1-Header/cart-black.svg);
   }
 
-    .curent-link .shoping-list::after {
-      content: url(../images/1-Header/cart-black.svg);
-      margin-left: 4px;
-      width: 20px;
-      height: 20px;
-  
-    }
+  .curent-link .shoping-list::after {
+    content: url(../images/1-Header/cart-black.svg);
+    margin-left: 4px;
+    width: 20px;
+    height: 20px;
+  }
 
   .header-btn-mobil-menu {
     display: none;
@@ -382,8 +384,12 @@ body.dark-theme {
     content: url(../images/1-Header/cart-black.svg);
   }
 
-  .dark-theme .menu-list-nav {
+  body.dark-theme .menu-list-nav > a {
     color: #ffffff;
+  }
+
+  body.dark-theme a.curent-link {
+    color: black;
   }
 
   .sign-up {
@@ -429,8 +435,13 @@ body.dark-theme {
     margin-left: 76px;
   }
 
-    .header-container {
-      padding: 0 24px;
-    }
+  .header-container {
+    padding: 0 24px;
+    max-width: 1440px;
+  }
+}
 
+body.dark-theme > header > .header-container {
+  background-color: #111111;
+  transition: background-color 0.4s;
 }

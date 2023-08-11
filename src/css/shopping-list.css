@@ -74,6 +74,11 @@ body.dark-theme .shopping-list-header {
   margin-bottom: 14px;
   color: rgb(0, 0, 0, 0.6);
 }
+
+body.dark-theme .empty-shopping-list-msg {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .empty-shopping-list-img {
   width: 265px;
   height: 198px;
@@ -149,6 +154,8 @@ body.dark-theme .shopping-list-header {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  transition: 0.4s;
 }
 body.dark-theme .shoping-book-card-title {
   color: #ffffff;
@@ -323,6 +330,13 @@ body.dark-theme .shoping-book-card-description {
 }
 
 @media screen and (min-width: 1440px) {
+  .shopping-list {
+    width: 100%;
+  }
+  .empty-shopping-list-div {
+    margin: 0 auto;
+  }
+
   .shopping-list-div {
     width: 996px;
   }

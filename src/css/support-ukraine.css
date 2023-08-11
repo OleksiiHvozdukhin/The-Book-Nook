@@ -77,6 +77,10 @@ section.all_categories.active {
     margin-left: 24px;
   }
 
+  .funds__list {
+    width: 187px;
+  }
+
   .support-ukraine-container {
     max-width: 1252px;
   }

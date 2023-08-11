@@ -244,6 +244,55 @@ button {
   width: 242px;
 }
 
+.image-link-amazon {
+  background-image: url(../images/5-Shoping\ List/image-amazon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 32px;
+  height: 11px;
+}
+
+.image-link-openBook {
+  background-image: url(../images/5-Shoping\ List/image-open-book.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+}
+
+.image-link-bookShop {
+  background-image: url(../images/5-Shoping\ List/image-book-shop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 33px;
+  height: 33px;
+}
+
+.image-link-openBook {
+  width: 33px;
+  height: 33px;
+}
+
+.image-link-amazon {
+  width: 62px;
+  height: 19px;
+}
+
+.shoping-list-images {
+  bottom: 24px;
+  right: 24px;
+}
+
+.image-link {
+  display: block;
+}
+
+.list-images {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 /*медіа правила*/
 @media screen and (min-width: 768px) {
   .modal {

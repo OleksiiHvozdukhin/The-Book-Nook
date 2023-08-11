@@ -48,6 +48,11 @@ body.dark-theme .book-title {
   color: #b4afaf;
   margin-bottom: 18px;
 }
+
+.item-image {
+  cursor: pointer;
+}
+
 .item-list {
   width: 100%;
 }

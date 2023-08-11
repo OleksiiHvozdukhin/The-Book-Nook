@@ -71,7 +71,7 @@ button {
   flex-direction: column;
   /* overflow: auto; */
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   gap: 40px;
 
   height: 762px;

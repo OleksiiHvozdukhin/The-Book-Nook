@@ -125,6 +125,12 @@ body.dark-theme .shopping-list-header {
   font-weight: 400;
 
   padding-bottom: 4px;
+
+  width: 144px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .shoping-book-card-title_and_ganre {
@@ -138,10 +144,11 @@ body.dark-theme .shopping-list-header {
   font-size: 16px;
   font-weight: 700;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  width: 144px;
+  display: inline-block;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .shoping-book-card-description {
@@ -188,7 +195,7 @@ body.dark-theme .shopping-list-header {
 
 .list-images {
   display: flex;
-  gap: 20px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -220,15 +227,15 @@ body.dark-theme .shopping-list-header {
   height: 16px;
 }
 
-.pagination {
-  gap: 24px;
-}
-.pagination-btn {
-  width: 44px;
-  height: 44px;
-}
-
 @media screen and (min-width: 768px) {
+  .pagination {
+    gap: 24px;
+  }
+  .pagination-btn {
+    width: 44px;
+    height: 44px;
+  }
+
   .shopping-list-header {
     font-size: 48px;
   }
@@ -298,6 +305,15 @@ body.dark-theme .shopping-list-header {
     width: 34px;
     height: 34px;
   }
+
+  .shoping-book-card-title,
+  .shoping-book-card-ganre {
+    width: 100%;
+  }
+
+  .list-images {
+    gap: 16px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -345,5 +361,9 @@ body.dark-theme .shopping-list-header {
 
   .shoping-book-card-ganre {
     padding-bottom: 10px;
+  }
+
+  .list-images {
+    gap: 20px;
   }
 }

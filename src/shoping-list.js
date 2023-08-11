@@ -22,31 +22,59 @@ const nextNumerBtn = document.querySelector('.next-numer-btn');
 const nextBtn = document.querySelector('.next-btn');
 const lastBtn = document.querySelector('.last-btn');
 
-function displayPage(pageNumber) {
-  const startIndex = (pageNumber - 1) * booksPerPage;
-  const endIndex = startIndex + booksPerPage;
+console.log(
+  'Количество элементов в локальном хранилище: ' + localStorage.length
+);
+
+function secondToLastKeyFromLocalStorage() {
+  console.log('ИЩЕТ ПРЕДПОСЛЕДНИЙ ЭЛЕМЕТ');
   const keys = Object.keys(localStorage);
 
-  bookList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
-  if (localStorage.length > 1) {
-    console.log(localStorage);
-    for (let i = startIndex; i < endIndex && i < keys.length; i++) {
-      const key = keys[i];
-      if (localStorage[key] === 'BOOK') {
-        const clearShopList = document.querySelector(
-          '.empty-shopping-list-div'
-        );
-        servicesSelectedBook(key).then(
-          ({ _id, book_image, author, title, description, list_name }) => {
-            bookList.insertAdjacentHTML(
-              'beforeend',
-              `<li class="shoping-book-card">
+  if (keys.length >= 2) {
+    console.log(keys);
+    if (keys[keys.length - 2] == 'theme') return keys[keys.length - 1];
+    else return keys[keys.length - 2];
+  }
+}
+
+function searchMoreElement() {
+  const keys = Object.keys(localStorage);
+  const existingIds = Array.from(
+    document.querySelectorAll('.shoping-book-card')
+  ).map(element => element.classList[1]);
+
+  for (const key of keys) {
+    // Проверяем, что значение по ключу равно 'BOOK'
+    if (localStorage[key] === 'BOOK') {
+      // Получаем последние 5 цифр из ключа
+      const idFromKey = key.slice(-5);
+
+      // Проверяем, что такого id нет среди существующих на странице
+      if (!existingIds.includes(idFromKey)) {
+        console.log('firstID');
+        console.log(key);
+        return key; // Возвращаем первый найденный отсутствующий id
+      }
+    }
+  }
+}
+
+console.log('ОБДЖЕКТ КЕЙС');
+console.log(Object.keys(localStorage));
+
+function renderingLiElement(key) {
+  servicesSelectedBook(key).then(
+    ({ _id, book_image, author, title, description, list_name }) => {
+      bookList.insertAdjacentHTML(
+        'beforeend',
+        `<li class="shoping-book-card ${_id.slice(-5)}">
               <div class="shoping-book-card-img">
         <img src="${book_image}" alt="${_id}"width="335" height="485">
       </div>
       <div class="shoping-book-card-text">
         <div class="shoping-book-card-title_and_ganre">
             <h3 class="shoping-book-card-title">${title}</h3>
+            <h3 class="shoping-book-card-title">${_id}</h3>
             <h4 class="shoping-book-card-ganre">${list_name}</h4>
             <p class="shoping-book-card-description">${description}</p>
         </div>
@@ -59,13 +87,80 @@ function displayPage(pageNumber) {
             <li><a href="https://bookshop.org/" class="image-link image-link-bookShop"></a></li>
           </ul>
         </div>
-      <button class="shoping-list-btn">
+      <button class="shoping-list-btn shoping-list-btn${title
+        .toLowerCase()
+        .replace(/\s/g, '')
+        .replace(/[.,';!&:]/g, '')}">
       
     </button>
             </li>`
+      );
+      console.log(`ОТРИСОВЫВАЮ ${_id}`);
+      const deleteButton = document.querySelector(
+        `.shoping-list-btn${title
+          .toLowerCase()
+          .replace(/\s/g, '')
+          .replace(/[.,;!&:]/g, '')}`
+      );
+      // КНОПКА УДАЛЕНИЯ
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      deleteButton.addEventListener('click', () => {
+        console.log('DO');
+        console.log(localStorage);
+        const listItem = deleteButton.closest('.shoping-book-card');
+        if (listItem) {
+          bookList.removeChild(listItem);
+          localStorage.removeItem(_id);
+
+          const remainingItems =
+            document.querySelectorAll('.shoping-book-card');
+          if (remainingItems.length === 0) {
+            const clearShopList = document.querySelector(
+              '.empty-shopping-list-div'
             );
+            const pagination = document.querySelector('.pagination');
+
+            clearShopList.style.display = 'block';
+            pagination.style.display = 'none';
           }
+          if (remainingItems.length < 3 && localStorage.length > 3) {
+            renderingLiElement(searchMoreElement());
+            console.log('Запускает отрисовку');
+          }
+        }
+      });
+      // КОНЕЦ КНОПКИ УДАЛЕНИЯ
+    }
+  );
+}
+
+function displayPage(pageNumber) {
+  const startIndex = (pageNumber - 1) * booksPerPage;
+  const endIndex = startIndex + booksPerPage;
+  const keys = Object.keys(localStorage);
+  console.log(localStorage);
+  bookList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
+  if (localStorage.length > 1) {
+    for (let i = startIndex; i < endIndex && i < keys.length; i++) {
+      let key;
+      console.log('ЭЛЕМЕНТ');
+      // ТУТ ОШИБКА, СКОРЕЕ ВСЕГО
+      if (keys[i] === 'theme')
+        if (keys[keys.lendth - 1] == 'theme') key = keys[keys.length - 2];
+        else key = keys[keys.length - 1];
+      else key = keys[i];
+
+      console.log(keys);
+      console.log(keys[i]);
+      console.log(`Количество єлементов в списке: ${keys.length}`);
+      console.log(`ПОСЛЕДНИЙ ЭЛЕМЕНТ ${keys[keys.length - 1]}`);
+
+      if (localStorage[key] === 'BOOK') {
+        const clearShopList = document.querySelector(
+          '.empty-shopping-list-div'
         );
+
+        renderingLiElement(key);
 
         const pagination = document.querySelector('.pagination');
         pagination.style.display = 'flex';
@@ -73,7 +168,6 @@ function displayPage(pageNumber) {
       }
     }
   } else {
-    console.log(localStorage);
     const clearShopList = document.querySelector('.empty-shopping-list-div');
     clearShopList.style.display = 'block';
 
